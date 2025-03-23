@@ -469,14 +469,12 @@ function initCounter() {
 
 // Кнопка прокрутки наверх
 function initScrollToTop() {
-    const scrollBtn = document.createElement('button');
-    scrollBtn.classList.add('scroll-top-btn');
-    scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    document.body.appendChild(scrollBtn);
+    const scrollBtn = document.querySelector('.scroll-to-top');
+    if (!scrollBtn) return;
     
     // Показывать кнопку только при прокрутке вниз
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 500) {
+        if (window.scrollY > 300) {
             scrollBtn.classList.add('visible');
         } else {
             scrollBtn.classList.remove('visible');
