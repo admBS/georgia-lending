@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Доставка автомобилей из США в Грузию и Минск - ООО 'Вестспецтрак'. Профессиональные морские грузоперевозки автомобилей.">
+    <meta name="keywords" content="доставка автомобилей из США, морские грузоперевозки, автомобили из США в Грузию, автомобили из Грузии в Минск, Вестспецтрак">
+    <title>Доставка автомобилей из США в Грузию и Минск | Вестспецтрак</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="logo">
+                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="logo__img">
+                </div>
+                <div class="header__contact">
+                    <a href="tel:+375296449009" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+375 (29) 644-90-09</span>
+                    </a>
+                    <button class="btn btn--primary call-btn">Заказать звонок</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title animated">Доставка автомобилей из США в Минск через Грузию</h1>
+                    <p class="hero__subtitle animated">Профессиональная морская перевозка автомобилей с гарантией сохранности и полным таможенным оформлением</p>
+                    <div class="hero__buttons animated">
+                        <button class="btn btn--secondary hero__btn call-btn" onclick="scrollToElement('contact')">
+                            <i class="fas fa-phone-alt"></i> Заказать звонок
+                        </button>
+                        <button class="btn btn--outline hero__btn" onclick="scrollToElement('calculator')">
+                            <i class="fas fa-calculator"></i> Рассчитать стоимость
+                        </button>
+                    </div>
+                    <div class="hero__advantages">
+                        <div class="advantage-item animated">
+                            <i class="fas fa-ship"></i>
+                            <span>Быстрая морская доставка</span>
+                        </div>
+                        <div class="advantage-item animated">
+                            <i class="fas fa-lock"></i>
+                            <span>100% гарантия сохранности</span>
+                        </div>
+                        <div class="advantage-item animated">
+                            <i class="fas fa-file-contract"></i>
+                            <span>Полное таможенное оформление</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image animated">
+                    <img src="assets/images/hero-car.webp" alt="Доставка автомобилей из США" loading="lazy">
+                    <div class="hero__overlay">
+                        <div class="hero__stats">
+                            <div class="hero-stat">
+                                <span class="animated-number" data-number="7">7</span>
+                                <p>дней морем до Грузии</p>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="animated-number" data-number="1000">1000</span>
+                                <p>довольных клиентов</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services section -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">Наши услуги</h2>
+                <p class="section-subtitle">Полный спектр услуг по доставке автомобилей из США в Минск через Грузию</p>
+                
+                <div class="services__grid">
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3 class="service-card__title">Подбор автомобиля</h3>
+                        <p class="service-card__text">Помогаем найти идеальный автомобиль на аукционах США по вашим параметрам и бюджету</p>
+                    </div>
+                    
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3 class="service-card__title">Морская доставка</h3>
+                        <p class="service-card__text">Быстрая и безопасная транспортировка автомобилей морем из США в порт Поти (Грузия)</p>
+                    </div>
+                    
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="service-card__title">Наземная перевозка</h3>
+                        <p class="service-card__text">Доставка автомобилей автовозами из Грузии в Минск с полным страхованием груза</p>
+                    </div>
+                    
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="service-card__title">Таможенное оформление</h3>
+                        <p class="service-card__text">Полное сопровождение процесса растаможки автомобиля в Грузии и Беларуси</p>
+                    </div>
+                    
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="service-card__title">Техническая проверка</h3>
+                        <p class="service-card__text">Полный технический осмотр и проверка состояния автомобиля перед отправкой</p>
+                    </div>
+                    
+                    <div class="service-card animated">
+                        <div class="service-card__icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="service-card__title">Сопровождение сделки</h3>
+                        <p class="service-card__text">Полное юридическое сопровождение на всех этапах покупки и доставки автомобиля</p>
+                    </div>
+                </div>
+                
+                <div class="services__cta">
+                    <p>Получите полную консультацию по нашим услугам</p>
+                    <button class="btn btn--secondary call-btn">
+                        <i class="fas fa-phone-alt"></i> Связаться с менеджером
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits section -->
+        <section class="benefits" id="benefits">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас</h2>
+                <p class="section-subtitle">Преимущества работы с ООО "Вестспецтрак" при доставке автомобилей из США</p>
+                
+                <div class="benefits__wrapper">
+                    <div class="benefits__content">
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">01</div>
+                            <div class="benefit-item__content">
+                                <h3>Без посредников</h3>
+                                <p>Работаем напрямую с портами и перевозчиками, что позволяет предлагать лучшие цены на рынке</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">02</div>
+                            <div class="benefit-item__content">
+                                <h3>Опыт и профессионализм</h3>
+                                <p>Более 5 лет успешной работы и более 1000 доставленных автомобилей из США в Беларусь</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">03</div>
+                            <div class="benefit-item__content">
+                                <h3>Полная прозрачность</h3>
+                                <p>Фиксированная цена без скрытых платежей и комиссий. Видеоотчеты погрузки/выгрузки</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">04</div>
+                            <div class="benefit-item__content">
+                                <h3>Быстрая доставка</h3>
+                                <p>Минимальные сроки доставки (7-14 дней морем до Грузии и 3-5 дней наземным транспортом до Минска)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">05</div>
+                            <div class="benefit-item__content">
+                                <h3>Гарантия сохранности</h3>
+                                <p>Полное страхование груза на всем пути следования и бережная перевозка в контейнерах</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item animated">
+                            <div class="benefit-item__number">06</div>
+                            <div class="benefit-item__content">
+                                <h3>Юридическая безопасность</h3>
+                                <p>Полный пакет документов и сопровождение сделки на всех этапах. Официальный договор</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="benefits__stats animated">
+                        <div class="stats-block">
+                            <div class="stats-item">
+                                <span class="counter" data-target="1250">0</span>
+                                <p>доставленных авто</p>
+                            </div>
+                            <div class="stats-item">
+                                <span class="counter" data-target="98">0</span><span>%</span>
+                                <p>довольных клиентов</p>
+                            </div>
+                            <div class="stats-item">
+                                <span class="counter" data-target="5">0</span><span>+</span>
+                                <p>лет на рынке</p>
+                            </div>
+                            <div class="stats-item">
+                                <span class="counter" data-target="7">0</span>
+                                <p>дней - минимальный срок</p>
+                            </div>
+                        </div>
+                        <div class="benefits__cta">
+                            <p>Узнайте больше о наших преимуществах у менеджера</p>
+                            <button class="btn btn--secondary call-btn">
+                                <i class="fas fa-phone-alt"></i> Позвонить сейчас
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it works section -->
+        <section class="process" id="process">
+            <div class="container">
+                <h2 class="section-title">Как это работает</h2>
+                <p class="section-subtitle">Простой и понятный процесс доставки автомобиля из США в Минск через Грузию</p>
+                
+                <div class="process__timeline">
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">1</div>
+                        <div class="timeline-item__content">
+                            <h3>Выбор автомобиля</h3>
+                            <p>Вы выбираете автомобиль на аукционах США (Copart, IAAI, Manheim) сами или с нашей помощью</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">2</div>
+                        <div class="timeline-item__content">
+                            <h3>Покупка и оформление</h3>
+                            <p>Мы выкупаем автомобиль, оформляем все необходимые документы и подготавливаем его к отправке</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-file-signature"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">3</div>
+                        <div class="timeline-item__content">
+                            <h3>Морская доставка</h3>
+                            <p>Автомобиль загружается в контейнер и отправляется морем в порт Поти (Грузия)</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">4</div>
+                        <div class="timeline-item__content">
+                            <h3>Таможенное оформление</h3>
+                            <p>По прибытии в Грузию мы проводим таможенное оформление и технический осмотр автомобиля</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">5</div>
+                        <div class="timeline-item__content">
+                            <h3>Наземная перевозка</h3>
+                            <p>Автомобиль загружается на автовоз и отправляется наземным транспортом в Минск</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item animated">
+                        <div class="timeline-item__number">6</div>
+                        <div class="timeline-item__content">
+                            <h3>Получение автомобиля</h3>
+                            <p>Вы получаете автомобиль в Минске с полным комплектом документов для регистрации</p>
+                            <div class="timeline-item__icon">
+                                <i class="fas fa-flag-checkered"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process__video animated">
+                    <h3>Посмотрите, как мы работаем:</h3>
+                    <div class="video-container" id="videoContainer1">
+                        <div class="video-overlay" onclick="playVideo('videoContainer1')">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Смотреть видео погрузки</span>
+                        </div>
+                        <iframe width="560" height="315" data-src="https://www.youtube.com/embed/bX-9cjow08U" title="Видео погрузки автомобилей" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="process__cta">
+                    <p>Хотите узнать точную стоимость и сроки для вашего автомобиля?</p>
+                    <button class="btn btn--secondary call-btn">
+                        <i class="fas fa-phone-alt"></i> Получить консультацию
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator section -->
+        <section class="calculator" id="calculator">
+            <div class="container">
+                <h2 class="section-title">Рассчитать стоимость</h2>
+                <p class="section-subtitle">Узнайте примерную стоимость доставки вашего автомобиля из США</p>
+                
+                <div class="calculator__wrapper">
+                    <div class="calculator__form animated">
+                        <form class="calculator-form">
+                            <div class="form-group">
+                                <label>Тип автомобиля:</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="car_type" id="sedan" value="sedan" checked>
+                                        <label for="sedan">
+                                            <i class="fas fa-car"></i>
+                                            <span>Седан</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="car_type" id="suv" value="suv">
+                                        <label for="suv">
+                                            <i class="fas fa-truck-monster"></i>
+                                            <span>Внедорожник</span>
+                                        </label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="car_type" id="truck" value="truck">
+                                        <label for="truck">
+                                            <i class="fas fa-truck-pickup"></i>
+                                            <span>Пикап / Минивэн</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="year-slider">Год выпуска: <span class="year-value">2020</span></label>
+                                <input type="range" id="year-slider" min="2000" max="2025" value="2020" class="slider">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="engine">Объем двигателя (л):</label>
+                                <select id="engine" name="engine">
+                                    <option value="1.6">до 1.6</option>
+                                    <option value="2.0" selected>1.6 - 2.0</option>
+                                    <option value="3.0">2.1 - 3.0</option>
+                                    <option value="4.0">3.1 - 4.0</option>
+                                    <option value="5.0">более 4.0</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Состояние автомобиля:</label>
+                                <div class="radio-group">
+                                    <div class="radio-item">
+                                        <input type="radio" name="condition" id="clean" value="clean" checked>
+                                        <label for="clean">Чистый титул</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="condition" id="salvage" value="salvage">
+                                        <label for="salvage">Salvage / Повреждения</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary calculate-btn">
+                                <i class="fas fa-calculator"></i> Рассчитать
+                            </button>
+                        </form>
+                        
+                        <div class="calculator__result">
+                            <h3>Примерная стоимость:</h3>
+                            <div class="result-block">
+                                <div class="price-block">
+                                    <span class="calculator__result-price">2000</span>
+                                    <span class="currency">$</span>
+                                </div>
+                                <p class="price-note">Включая доставку, таможенное оформление и все сборы</p>
+                            </div>
+                            <button class="btn btn--secondary call-btn">
+                                <i class="fas fa-phone-alt"></i> Получить точный расчет
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator__info animated">
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Что входит в стоимость?</h3>
+                                <ul>
+                                    <li>Выкуп автомобиля на аукционе</li>
+                                    <li>Доставка до порта в США</li>
+                                    <li>Морская перевозка в Грузию</li>
+                                    <li>Таможенное оформление в Грузии</li>
+                                    <li>Доставка автомобиля в Минск</li>
+                                    <li>Полное страхование груза</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Важно знать!</h3>
+                                <p>Калькулятор даёт ориентировочную стоимость. Для получения точного расчета с учетом всех особенностей вашего автомобиля свяжитесь с нашим менеджером.</p>
+                                <p>Окончательная стоимость также зависит от конкретной модели, аукционных сборов и дополнительных услуг.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <div class="testimonial-card__quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-card__text">Благодаря ребятам из "Вестспецтрак" мой Mustang GT 2019 приехал в идеальном состоянии и всего за 4 недели! Рассчитали все точно, никаких доплат и скрытых платежей.</p>
+                            <div class="testimonial-card__author">
+                                <img src="assets/images/testimonial-avatar.webp" alt="Отзыв клиента" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <h4>Александр Иванов</h4>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery section -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <h2 class="section-title">Наши работы</h2>
+                <p class="section-subtitle">Фотографии реальных автомобилей, доставленных нашей компанией</p>
+                
+                <div class="gallery__grid">
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car1.webp" alt="Доставка автомобилей из США на автовозе" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Автовоз с американскими автомобилями</p>
+                            <span>Доставка из Грузии в Минск</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car2.webp" alt="Погрузка автомобилей на автовоз" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Процесс погрузки автомобилей</p>
+                            <span>Грузия, 2024 год</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car3.webp" alt="Премиальные автомобили из США" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Премиальные автомобили из США</p>
+                            <span>Подготовка к отправке</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car4.webp" alt="Автомобили из США в контейнере" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Транспортировка в контейнерах</p>
+                            <span>Морская доставка из США в Грузию</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car5.webp" alt="Автовоз с автомобилями" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Полностью загруженный автовоз</p>
+                            <span>На пути в Минск</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery__item animated">
+                        <div class="gallery__image">
+                            <img src="assets/images/car6.webp" alt="Доставка автомобилей из США" loading="lazy">
+                            <div class="gallery__overlay">
+                                <i class="fas fa-search-plus"></i>
+                                <span>Увеличить</span>
+                            </div>
+                        </div>
+                        <div class="gallery__caption">
+                            <p>Разнообразие моделей автомобилей</p>
+                            <span>Работаем со всеми типами транспорта</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery__videos">
+                    <h3>Видео нашей работы</h3>
+                    <div class="videos-container">
+                        <div class="video-item animated">
+                            <div class="video-container" id="videoContainer2">
+                                <div class="video-overlay" onclick="playVideo('videoContainer2')">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Погрузка автомобилей</span>
+                                </div>
+                                <iframe width="560" height="315" data-src="https://www.youtube.com/embed/bX-9cjow08U" title="Погрузка автомобилей" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p>Погрузка автомобилей в Грузии</p>
+                        </div>
+                        
+                        <div class="video-item animated">
+                            <div class="video-container" id="videoContainer3">
+                                <div class="video-overlay" onclick="playVideo('videoContainer3')">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Морская доставка</span>
+                                </div>
+                                <iframe width="560" height="315" data-src="https://www.youtube.com/embed/B4GtCL5gyvs" title="Морская доставка автомобилей" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <p>Морская доставка из США в Грузию</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery__cta">
+                    <p>Хотите увидеть больше фото и видео наших работ?</p>
+                    <button class="btn btn--secondary call-btn">
+                        <i class="fab fa-telegram"></i> Подписаться на наш Telegram
+                    </button>
+                </div>
+                
+                <!-- Lightbox для галереи -->
+                <div class="lightbox">
+                    <div class="lightbox__content">
+                        <span class="lightbox__close">&times;</span>
+                        <img class="lightbox__img" src="" alt="Увеличенное изображение">
+                        <div class="lightbox__navigation">
+                            <span class="lightbox__prev"><i class="fas fa-chevron-left"></i></span>
+                            <span class="lightbox__next"><i class="fas fa-chevron-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <p class="section-subtitle">Ответы на популярные вопросы о доставке автомобилей из США</p>
+                
+                <div class="faq__container">
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Сколько времени занимает доставка автомобиля из США в Минск?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Полный процесс доставки автомобиля из США в Минск через Грузию занимает от 3 до 5 недель. Из них:</p>
+                            <ul>
+                                <li>1-2 недели - морская доставка из США в Грузию</li>
+                                <li>3-5 дней - таможенное оформление в Грузии</li>
+                                <li>3-5 дней - наземная транспортировка из Грузии в Минск</li>
+                            </ul>
+                            <p>Точные сроки зависят от порта отправления в США, загруженности морских линий и сезона.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Какие документы нужны для растаможки автомобиля в Беларуси?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Для растаможки автомобиля в Беларуси требуются следующие документы:</p>
+                            <ul>
+                                <li>Оригинал титула (Title) на автомобиль</li>
+                                <li>Инвойс (счет) на покупку автомобиля</li>
+                                <li>Транспортные документы (коносамент, CMR)</li>
+                                <li>Грузинское свидетельство о регистрации (при необходимости)</li>
+                                <li>Паспорт владельца</li>
+                            </ul>
+                            <p>Мы берем на себя подготовку всех необходимых документов и помогаем с таможенным оформлением.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Как происходит оплата за доставку и растаможку?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Оплата происходит поэтапно:</p>
+                            <ol>
+                                <li>Предоплата 30% при заключении договора</li>
+                                <li>30% после покупки автомобиля на аукционе</li>
+                                <li>30% при погрузке автомобиля на судно</li>
+                                <li>10% при получении автомобиля в Минске</li>
+                            </ol>
+                            <p>Мы принимаем оплату в белорусских рублях, долларах США или евро. Возможна оплата наличными или безналичным расчетом.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Можно ли доставить автомобиль с повреждениями?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, мы доставляем автомобили с различными типами повреждений. Однако есть некоторые ограничения:</p>
+                            <ul>
+                                <li>Автомобиль должен быть на ходу или быть погружаемым/выгружаемым без специального оборудования</li>
+                                <li>Не должно быть серьезных повреждений несущей конструкции, затрудняющих транспортировку</li>
+                                <li>Для автомобилей с сильными повреждениями может потребоваться индивидуальная контейнерная перевозка</li>
+                            </ul>
+                            <p>Мы оцениваем возможность и стоимость перевозки каждого автомобиля индивидуально.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Какие виды автомобилей вы можете доставить?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Мы доставляем все виды легковых автомобилей, внедорожников, микроавтобусов и легких грузовиков. В том числе:</p>
+                            <ul>
+                                <li>Легковые автомобили всех классов</li>
+                                <li>Внедорожники и кроссоверы</li>
+                                <li>Пикапы и легкие грузовики</li>
+                                <li>Минивэны и микроавтобусы</li>
+                                <li>Спортивные и премиальные автомобили</li>
+                                <li>Электромобили и гибриды</li>
+                            </ul>
+                            <p>Для крупногабаритных транспортных средств (тяжелых грузовиков, спецтехники) условия обсуждаются индивидуально.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item animated">
+                        <div class="faq-question">
+                            <h3>Можно ли отслеживать местоположение автомобиля?</h3>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, мы предоставляем возможность отслеживания вашего автомобиля на всех этапах перевозки:</p>
+                            <ul>
+                                <li>Регулярные обновления статуса через личный кабинет или по e-mail</li>
+                                <li>Отслеживание морской перевозки по номеру коносамента</li>
+                                <li>GPS-мониторинг автовоза при наземной транспортировке</li>
+                                <li>Фото и видео-отчеты о ключевых этапах доставки</li>
+                            </ul>
+                            <p>Ваш персональный менеджер всегда готов предоставить актуальную информацию о местонахождении и статусе перевозки вашего автомобиля.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq__more">
+                    <p>Не нашли ответ на свой вопрос?</p>
+                    <button class="btn btn--secondary call-btn">
+                        <i class="fas fa-phone-alt"></i> Задать вопрос менеджеру
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact form section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Свяжитесь с нами</h2>
+                <p class="section-subtitle">Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
+                
+                <div class="contact__wrapper">
+                    <div class="contact__info animated">
+                        <div class="contact-card">
+                            <div class="contact-card__icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3>Адрес</h3>
+                                <p>г. Минск, 2-й Короткий пер. 25А</p>
+                                <a href="https://maps.google.com/?q=Минск, 2-й Короткий пер. 25А" target="_blank" class="contact-link">Показать на карте</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card__icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3>Телефон</h3>
+                                <a href="tel:+375296449009" class="contact-link">+375 (29) 644-90-09</a>
+                                <p>Ежедневно с 9:00 до 20:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card__icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3>Email</h3>
+                                <a href="mailto:info@westspectruck.by" class="contact-link">info@westspectruck.by</a>
+                                <p>Свяжитесь с нами по email</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-card__icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="contact-card__content">
+                                <h3>Реквизиты</h3>
+                                <p>ООО "Вестспецтрак"</p>
+                                <p>УНП 193572012</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__social">
+                            <h3>Мы в социальных сетях</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link" title="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link" title="Telegram">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </a>
+                                <a href="#" class="social-link" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" class="social-link" title="Viber">
+                                    <i class="fab fa-viber"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__form animated">
+                        <div class="form-container">
+                            <h3>Оставить заявку</h3>
+                            <form class="contact-form">
+                                <!-- Honeypot field - скрытое поле для защиты от ботов -->
+                                <input type="text" name="honeypot" class="honeypot" tabindex="-1">
+                                
+                                <div class="form-group">
+                                    <label for="name">Ваше имя <span class="required">*</span></label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Ваш телефон <span class="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" pattern="[0-9+()-\s]+" required>
+                                    <small>Например: +375 29 123-45-67</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Сообщение</label>
+                                    <textarea id="message" name="message" rows="4" placeholder="Опишите ваш запрос или укажите марку автомобиля для расчета"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="agreement" required>
+                                        <span class="checkmark"></span>
+                                        Я согласен на обработку персональных данных
+                                    </label>
+                                </div>
+                                
+                                <div class="form-message"></div>
+                                
+                                <button type="submit" class="btn btn--primary btn--wide">
+                                    <i class="fas fa-paper-plane"></i> Отправить заявку
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <div class="contact__prompt">
+                            <div class="contact-prompt-card">
+                                <div class="prompt-icon pulsing-icon">
+                                    <i class="fas fa-phone-volume"></i>
+                                </div>
+                                <div class="prompt-content">
+                                    <h3>Нужен быстрый ответ?</h3>
+                                    <p>Позвоните нам прямо сейчас и получите консультацию в течение 2 минут</p>
+                                    <a href="tel:+375296449009" class="btn btn--secondary btn--wide">
+                                        <i class="fas fa-phone-alt"></i> +375 (29) 644-90-09
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__info">
+                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="footer__logo">
+                    <p>ООО "Вестспецтрак"</p>
+                    <p>Минск, 2-й Короткий пер. 25А</p>
+                    <p>УНП 193572012</p>
+                </div>
+                <div class="footer__contact">
+                    <a href="tel:+375296449009" class="footer__phone">+375 (29) 644-90-09</a>
+                    <div class="footer__social">
+                        <!-- Social media links will be added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>&copy; 2025 ООО "Вестспецтрак". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal popups will be added here -->
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
