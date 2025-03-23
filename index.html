@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Предзагрузка шрифтов для предотвращения смещений макета -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v29/JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2" as="font" type="font/woff2" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +23,7 @@
         <div class="container">
             <div class="header__inner">
                 <div class="logo">
-                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="logo__img">
+                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="logo__img" width="200" height="60">
                 </div>
                 <div class="header__contact">
                     <a href="tel:+375296449009" class="phone-link">
@@ -61,7 +67,7 @@
                     </div>
                 </div>
                 <div class="hero__image animated">
-                    <img src="assets/images/hero-car.webp" alt="Доставка автомобилей из США" loading="lazy">
+                    <img src="assets/images/hero-car.webp" alt="Доставка автомобилей из США" width="600" height="400" fetchpriority="high" loading="lazy">
                     <div class="hero__overlay">
                         <div class="hero__stats">
                             <div class="hero-stat">
@@ -89,48 +95,60 @@
                         <div class="service-card__icon">
                             <i class="fas fa-search-dollar"></i>
                         </div>
-                        <h3 class="service-card__title">Подбор автомобиля</h3>
-                        <p class="service-card__text">Помогаем найти идеальный автомобиль на аукционах США по вашим параметрам и бюджету</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Подбор автомобиля</h3>
+                            <p class="service-card__text">Помогаем найти идеальный автомобиль на аукционах США по вашим параметрам и бюджету</p>
+                        </div>
                     </div>
                     
                     <div class="service-card animated">
                         <div class="service-card__icon">
                             <i class="fas fa-ship"></i>
                         </div>
-                        <h3 class="service-card__title">Морская доставка</h3>
-                        <p class="service-card__text">Быстрая и безопасная транспортировка автомобилей морем из США в порт Поти (Грузия)</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Морская доставка</h3>
+                            <p class="service-card__text">Быстрая и безопасная транспортировка автомобилей морем из США в порт Поти (Грузия)</p>
+                        </div>
                     </div>
                     
                     <div class="service-card animated">
                         <div class="service-card__icon">
                             <i class="fas fa-truck"></i>
                         </div>
-                        <h3 class="service-card__title">Наземная перевозка</h3>
-                        <p class="service-card__text">Доставка автомобилей автовозами из Грузии в Минск с полным страхованием груза</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Наземная перевозка</h3>
+                            <p class="service-card__text">Доставка автомобилей автовозами из Грузии в Минск с полным страхованием груза</p>
+                        </div>
                     </div>
                     
                     <div class="service-card animated">
                         <div class="service-card__icon">
                             <i class="fas fa-file-alt"></i>
                         </div>
-                        <h3 class="service-card__title">Таможенное оформление</h3>
-                        <p class="service-card__text">Полное сопровождение процесса растаможки автомобиля в Грузии и Беларуси</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Таможенное оформление</h3>
+                            <p class="service-card__text">Полное сопровождение процесса растаможки автомобиля в Грузии и Беларуси</p>
+                        </div>
                     </div>
                     
                     <div class="service-card animated">
                         <div class="service-card__icon">
                             <i class="fas fa-clipboard-check"></i>
                         </div>
-                        <h3 class="service-card__title">Техническая проверка</h3>
-                        <p class="service-card__text">Полный технический осмотр и проверка состояния автомобиля перед отправкой</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Техническая проверка</h3>
+                            <p class="service-card__text">Полный технический осмотр и проверка состояния автомобиля перед отправкой</p>
+                        </div>
                     </div>
                     
                     <div class="service-card animated">
                         <div class="service-card__icon">
                             <i class="fas fa-handshake"></i>
                         </div>
-                        <h3 class="service-card__title">Сопровождение сделки</h3>
-                        <p class="service-card__text">Полное юридическое сопровождение на всех этапах покупки и доставки автомобиля</p>
+                        <div class="service-card__content">
+                            <h3 class="service-card__title">Сопровождение сделки</h3>
+                            <p class="service-card__text">Полное юридическое сопровождение на всех этапах покупки и доставки автомобиля</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -428,7 +446,7 @@
                             <div class="info-card__content">
                                 <h3>Важно знать!</h3>
                                 <p>Калькулятор даёт ориентировочную стоимость. Для получения точного расчета с учетом всех особенностей вашего автомобиля свяжитесь с нашим менеджером.</p>
-                                <p>Окончательная стоимость также зависит от конкретной модели, аукционных сборов и дополнительных услуг.</p>
+                                <p>Окончательная стоимость также зависят от конкретной модели, аукционных сборов и дополнительных услуг.</p>
                             </div>
                         </div>
                         
@@ -438,7 +456,7 @@
                             </div>
                             <p class="testimonial-card__text">Благодаря ребятам из "Вестспецтрак" мой Mustang GT 2019 приехал в идеальном состоянии и всего за 4 недели! Рассчитали все точно, никаких доплат и скрытых платежей.</p>
                             <div class="testimonial-card__author">
-                                <img src="assets/images/testimonial-avatar.webp" alt="Отзыв клиента" class="testimonial-avatar">
+                                <img src="assets/images/testimonial-avatar.webp" alt="Отзыв клиента" class="testimonial-avatar" width="80" height="80" loading="lazy">
                                 <div class="testimonial-info">
                                     <h4>Александр Иванов</h4>
                                     <div class="testimonial-rating">
@@ -465,7 +483,7 @@
                 <div class="gallery__grid">
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car1.webp" alt="Доставка автомобилей из США на автовозе" loading="lazy">
+                            <img src="assets/images/car1.webp" alt="Доставка автомобилей из США на автовозе" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -479,7 +497,7 @@
                     
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car2.webp" alt="Погрузка автомобилей на автовоз" loading="lazy">
+                            <img src="assets/images/car2.webp" alt="Погрузка автомобилей на автовоз" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -493,7 +511,7 @@
                     
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car3.webp" alt="Премиальные автомобили из США" loading="lazy">
+                            <img src="assets/images/car3.webp" alt="Премиальные автомобили из США" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -507,7 +525,7 @@
                     
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car4.webp" alt="Автомобили из США в контейнере" loading="lazy">
+                            <img src="assets/images/car4.webp" alt="Автомобили из США в контейнере" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -521,7 +539,7 @@
                     
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car5.webp" alt="Автовоз с автомобилями" loading="lazy">
+                            <img src="assets/images/car5.webp" alt="Автовоз с автомобилями" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -535,7 +553,7 @@
                     
                     <div class="gallery__item animated">
                         <div class="gallery__image">
-                            <img src="assets/images/car6.webp" alt="Доставка автомобилей из США" loading="lazy">
+                            <img src="assets/images/car6.webp" alt="Доставка автомобилей из США" loading="lazy" width="400" height="300">
                             <div class="gallery__overlay">
                                 <i class="fas fa-search-plus"></i>
                                 <span>Увеличить</span>
@@ -586,7 +604,7 @@
                 <div class="lightbox">
                     <div class="lightbox__content">
                         <span class="lightbox__close">&times;</span>
-                        <img class="lightbox__img" src="" alt="Увеличенное изображение">
+                        <img class="lightbox__img" src="" alt="Увеличенное изображение" width="800" height="600">
                         <div class="lightbox__navigation">
                             <span class="lightbox__prev"><i class="fas fa-chevron-left"></i></span>
                             <span class="lightbox__next"><i class="fas fa-chevron-right"></i></span>
@@ -850,7 +868,7 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__info">
-                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="footer__logo">
+                    <img src="https://westspectruck.by/images/logo.svg" alt="Вестспецтрак" class="footer__logo" width="180" height="54">
                     <p>ООО "Вестспецтрак"</p>
                     <p>Минск, 2-й Короткий пер. 25А</p>
                     <p>УНП 193572012</p>

@@ -382,8 +382,6 @@ section {
     }
 }
 
-/* Специальные стили для различных секций будут добавлены ниже */
-
 /* Секция Hero */
 .hero {
     position: relative;
@@ -559,6 +557,7 @@ section {
     background-color: var(--dark-bg);
     position: relative;
     overflow: hidden;
+    min-height: 100vh; /* Минимальная высота для предотвращения смещений */
 }
 
 .services::before {
@@ -582,6 +581,7 @@ section {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 3rem;
     margin-bottom: 5rem;
+    min-height: 450px; /* Фиксированная минимальная высота для предотвращения смещений */
 }
 
 .service-card {
@@ -593,6 +593,11 @@ section {
     position: relative;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Занимать всю высоту контейнера */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 220px; /* Минимальная высота карточки */
 }
 
 .service-card::before {
@@ -633,8 +638,15 @@ section {
     color: var(--primary-color);
 }
 
+.service-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
 .service-card__title {
     font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 1.5rem;
     color: var(--light-text);
 }
@@ -642,6 +654,7 @@ section {
 .service-card__text {
     color: var(--gray-text);
     line-height: 1.6;
+    flex: 1;
 }
 
 .services__cta {

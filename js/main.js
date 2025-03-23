@@ -566,21 +566,21 @@ function initVideoThumbnails() {
                 // default.jpg (низкое качество)
                 
                 // Проверяем доступность высококачественного превью
-                checkImageExists(`https://img.youtube.com/vi/${videoId}/0.jpg`)
+                checkImageExists(`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`)
                     .then(exists => {
                         if (exists) {
                            // thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`;
-                            thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/0.jpg)`;
+                            thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/mqdefault.jpg)`;
                         } else {
                             // Если недоступно, используем превью стандартного качества
                           //  thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/sddefault.jpg)`;
-                          thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/0.jpg)`;
+                          thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/mqdefault.jpg)`;
                         }
                     })
                     .catch(() => {
                         // При ошибке используем гарантированно доступное превью
                         // thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/hqdefault.jpg)`;
-                        thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/0.jpg)`;
+                        thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/mqdefault.jpg)`;
                     });
                 
                 // Добавляем в контейнер перед оверлеем
