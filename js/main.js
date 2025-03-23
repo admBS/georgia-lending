@@ -144,20 +144,20 @@ function createModalsIfNotExist() {
 
 // FAQ
 function initFAQ() {
-    const accordionItems = document.querySelectorAll('.accordion');
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    accordionItems.forEach(item => {
-        const header = item.querySelector('.accordion__header');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
         
-        header.addEventListener('click', function() {
-            // Закрываем все остальные аккордеоны
-            accordionItems.forEach(otherItem => {
+        question.addEventListener('click', function() {
+            // Закрываем все остальные элементы FAQ
+            faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
             
-            // Переключаем состояние текущего аккордеона
+            // Переключаем состояние текущего элемента
             item.classList.toggle('active');
         });
     });
@@ -165,7 +165,7 @@ function initFAQ() {
 
 // Галерея и лайтбокс
 function initGallery() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryItems = document.querySelectorAll('.gallery__item');
     const filterButtons = document.querySelectorAll('.filter-btn');
     
     // Фильтрация элементов галереи
@@ -192,39 +192,37 @@ function initGallery() {
     });
     
     // Лайтбокс для просмотра изображений
-    const lightbox = document.createElement('div');
-    lightbox.classList.add('lightbox');
-    lightbox.innerHTML = `
-        <div class="lightbox__content">
-            <span class="lightbox__close">&times;</span>
-            <img class="lightbox__image" src="" alt="Изображение в полном размере">
-            <span class="lightbox__prev"><i class="fas fa-chevron-left"></i></span>
-            <span class="lightbox__next"><i class="fas fa-chevron-right"></i></span>
-        </div>
-    `;
-    document.body.appendChild(lightbox);
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.querySelector('.lightbox__img');
+    const lightboxClose = document.querySelector('.lightbox__close');
+    const lightboxPrev = document.querySelector('.lightbox__prev');
+    const lightboxNext = document.querySelector('.lightbox__next');
     
-    const lightboxImage = lightbox.querySelector('.lightbox__image');
-    const lightboxClose = lightbox.querySelector('.lightbox__close');
-    const lightboxPrev = lightbox.querySelector('.lightbox__prev');
-    const lightboxNext = lightbox.querySelector('.lightbox__next');
-    
+    // Массив для хранения путей к изображениям
+    let galleryImages = [];
     let currentImageIndex = 0;
-    let visibleGalleryItems = [];
     
-    // Открытие лайтбокса
-    galleryItems.forEach((item, index) => {
+    // Заполняем массив изображениями из галереи
+    galleryItems.forEach(item => {
+        const img = item.querySelector('.gallery__image img');
+        if (img) {
+            galleryImages.push(img.getAttribute('src'));
+        }
+        
+        // Добавляем обработчик клика на элементы галереи
         item.addEventListener('click', function() {
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Получаем и устанавливаем изображение
-            const imageSrc = item.querySelector('img').getAttribute('src');
-            lightboxImage.setAttribute('src', imageSrc);
-            
-            // Получаем видимые элементы галереи для навигации
-            visibleGalleryItems = Array.from(galleryItems).filter(item => item.style.display !== 'none');
-            currentImageIndex = visibleGalleryItems.indexOf(item);
+            const img = this.querySelector('.gallery__image img');
+            if (img) {
+                const imgSrc = img.getAttribute('src');
+                lightboxImg.setAttribute('src', imgSrc);
+                
+                // Находим индекс текущего изображения
+                currentImageIndex = galleryImages.indexOf(imgSrc);
+                
+                // Открываем лайтбокс
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         });
     });
     
@@ -234,7 +232,7 @@ function initGallery() {
         document.body.style.overflow = '';
     });
     
-    // Закрытие по клику на затемненный фон
+    // Закрытие по клику на фон
     lightbox.addEventListener('click', function(e) {
         if (e.target === lightbox) {
             lightbox.classList.remove('active');
@@ -242,27 +240,30 @@ function initGallery() {
         }
     });
     
-    // Кнопки навигации
-    lightboxPrev.addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex - 1 + visibleGalleryItems.length) % visibleGalleryItems.length;
-        const imageSrc = visibleGalleryItems[currentImageIndex].querySelector('img').getAttribute('src');
-        lightboxImage.setAttribute('src', imageSrc);
+    // Переключение на предыдущее изображение
+    lightboxPrev.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        lightboxImg.setAttribute('src', galleryImages[currentImageIndex]);
     });
     
-    lightboxNext.addEventListener('click', function() {
-        currentImageIndex = (currentImageIndex + 1) % visibleGalleryItems.length;
-        const imageSrc = visibleGalleryItems[currentImageIndex].querySelector('img').getAttribute('src');
-        lightboxImage.setAttribute('src', imageSrc);
+    // Переключение на следующее изображение
+    lightboxNext.addEventListener('click', function(e) {
+        e.stopPropagation();
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        lightboxImg.setAttribute('src', galleryImages[currentImageIndex]);
     });
     
-    // Клавиши для навигации
+    // Навигация с клавиатуры
     document.addEventListener('keydown', function(e) {
         if (!lightbox.classList.contains('active')) return;
         
         if (e.key === 'ArrowLeft') {
-            lightboxPrev.click();
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            lightboxImg.setAttribute('src', galleryImages[currentImageIndex]);
         } else if (e.key === 'ArrowRight') {
-            lightboxNext.click();
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            lightboxImg.setAttribute('src', galleryImages[currentImageIndex]);
         } else if (e.key === 'Escape') {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
