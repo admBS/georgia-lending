@@ -1,66 +1,16 @@
 // Дожидаемся полной загрузки DOM перед выполнением JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация всех компонентов
-    initNavigation();
+    // Инициализация всех функций при загрузке DOM
     initAnimations();
     initModals();
-    initAccordion();
+    initFAQ();
     initGallery();
     initCalculator();
-    initForms();
-    initScrollToTop();
-    
-    // Инициализация превью для видео
+    initCounter();
     initVideoThumbnails();
+    initScrollToButtons();
+    initVideoButtons();
 });
-
-// Навигация
-function initNavigation() {
-    const header = document.querySelector('.header');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav__menu');
-    const navLinks = document.querySelectorAll('.nav__link');
-    
-    // Обработка прокрутки страницы - добавление/удаление класса для шапки
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.classList.add('header--scrolled');
-        } else {
-            header.classList.remove('header--scrolled');
-        }
-    });
-    
-    // Мобильное меню
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('nav__menu--active');
-            mobileMenuBtn.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-    }
-    
-    // Прокрутка к секциям при клике на ссылки навигации
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Закрываем мобильное меню при клике на ссылку
-            navMenu.classList.remove('nav__menu--active');
-            mobileMenuBtn.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
 
 // Анимации
 function initAnimations() {
@@ -86,28 +36,39 @@ function initAnimations() {
 
 // Модальные окна
 function initModals() {
+    // Создаем модальные окна, если они отсутствуют
+    createModalsIfNotExist();
+    
     const callBtns = document.querySelectorAll('.call-btn');
     const modalCall = document.querySelector('.modal--call');
     const modalSuccess = document.querySelector('.modal--success');
     const modalCloseButtons = document.querySelectorAll('.modal__close, .modal__close-btn');
     
     // Открытие модального окна заказа звонка
-    callBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            modalCall.classList.add('active');
-            document.body.style.overflow = 'hidden';
+    if (callBtns.length) {
+        callBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (modalCall) {
+                    modalCall.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    console.error('Modal call element not found');
+                }
+            });
         });
-    });
+    }
     
     // Закрытие модальных окон
-    modalCloseButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.classList.remove('active');
+    if (modalCloseButtons.length) {
+        modalCloseButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
             });
-            document.body.style.overflow = '';
         });
-    });
+    }
     
     // Закрытие по клику на затемненный фон
     document.querySelectorAll('.modal').forEach(modal => {
@@ -130,8 +91,59 @@ function initModals() {
     });
 }
 
-// Аккордеон для FAQ
-function initAccordion() {
+// Создаем модальные окна, если они отсутствуют в HTML
+function createModalsIfNotExist() {
+    if (!document.querySelector('.modal--call')) {
+        const modalCall = document.createElement('div');
+        modalCall.className = 'modal modal--call';
+        modalCall.innerHTML = `
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h3>Заказать звонок</h3>
+                    <button class="modal__close">&times;</button>
+                </div>
+                <div class="modal__body">
+                    <form class="callback-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn--primary">Отправить</button>
+                        </div>
+                        <div class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modalCall);
+    }
+    
+    if (!document.querySelector('.modal--success')) {
+        const modalSuccess = document.createElement('div');
+        modalSuccess.className = 'modal modal--success';
+        modalSuccess.innerHTML = `
+            <div class="modal__content">
+                <div class="modal__header">
+                    <h3>Спасибо за заявку!</h3>
+                    <button class="modal__close">&times;</button>
+                </div>
+                <div class="modal__body">
+                    <p>Ваша заявка успешно отправлена. Наш менеджер свяжется с вами в ближайшее время.</p>
+                    <div class="modal__footer">
+                        <button class="btn btn--primary modal__close-btn">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modalSuccess);
+    }
+}
+
+// FAQ
+function initFAQ() {
     const accordionItems = document.querySelectorAll('.accordion');
     
     accordionItems.forEach(item => {
@@ -366,152 +378,26 @@ function initCalculator() {
     calculatePrice();
 }
 
-// Обработка форм обратной связи
-function initForms() {
-    const contactForm = document.querySelector('.contact-form');
-    const modalForm = document.querySelector('.modal-form');
-    const modalSuccess = document.querySelector('.modal--success');
+// Счетчик
+function initCounter() {
+    const counters = document.querySelectorAll('.counter');
     
-    // Валидация и отправка контактной формы
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Проверка honeypot поля для защиты от ботов
-            const honeypot = contactForm.querySelector('.honeypot');
-            if (honeypot && honeypot.value) {
-                return; // Если поле заполнено, это бот
-            }
-            
-            // Проверка валидности формы
-            if (validateForm(contactForm)) {
-                // Имитация отправки данных
-                const formData = new FormData(contactForm);
-                simulateFormSubmission(formData)
-                    .then(() => {
-                        showSuccessMessage(contactForm);
-                        contactForm.reset();
-                        
-                        // Показываем модальное окно успешной отправки
-                        setTimeout(() => {
-                            modalSuccess.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }, 1000);
-                    })
-                    .catch(error => {
-                        showErrorMessage(contactForm, 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
-                    });
-            }
-        });
-    }
-    
-    // Валидация и отправка модальной формы заказа звонка
-    if (modalForm) {
-        modalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Проверка валидности формы
-            if (validateForm(modalForm)) {
-                // Имитация отправки данных
-                const formData = new FormData(modalForm);
-                simulateFormSubmission(formData)
-                    .then(() => {
-                        showSuccessMessage(modalForm);
-                        modalForm.reset();
-                        
-                        // Закрываем текущее модальное окно и показываем окно успеха
-                        setTimeout(() => {
-                            document.querySelector('.modal--call').classList.remove('active');
-                            modalSuccess.classList.add('active');
-                        }, 1000);
-                    })
-                    .catch(error => {
-                        showErrorMessage(modalForm, 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
-                    });
-            }
-        });
-    }
-    
-    // Валидация формы
-    function validateForm(form) {
-        let isValid = true;
-        const requiredFields = form.querySelectorAll('[required]');
+    counters.forEach(counter => {
+        const targetValue = parseInt(counter.getAttribute('data-target'));
+        let currentValue = 0;
         
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-                
-                // Удаляем класс ошибки при вводе данных
-                field.addEventListener('input', function() {
-                    this.classList.remove('error');
-                }, { once: true });
+        function updateCounter() {
+            if (currentValue < targetValue) {
+                currentValue++;
+                counter.textContent = currentValue;
+                requestAnimationFrame(updateCounter);
             } else {
-                field.classList.remove('error');
-            }
-        });
-        
-        // Проверка формата телефона
-        const phoneField = form.querySelector('input[type="tel"]');
-        if (phoneField && phoneField.value.trim()) {
-            const phonePattern = /^[0-9+()-\s]+$/;
-            if (!phonePattern.test(phoneField.value)) {
-                isValid = false;
-                phoneField.classList.add('error');
-                
-                phoneField.addEventListener('input', function() {
-                    this.classList.remove('error');
-                }, { once: true });
+                counter.textContent = targetValue;
             }
         }
         
-        return isValid;
-    }
-    
-    // Имитация отправки формы
-    function simulateFormSubmission(formData) {
-        return new Promise((resolve, reject) => {
-            // В реальном проекте здесь будет fetch-запрос к серверу
-            // Пример:
-            // fetch('https://api.example.com/submit-form', {
-            //     method: 'POST',
-            //     body: formData
-            // })
-            
-            // Имитируем задержку сервера
-            setTimeout(() => {
-                // Для демонстрации успешной отправки
-                const success = true;
-                if (success) {
-                    resolve();
-                } else {
-                    reject('Error submitting form');
-                }
-            }, 1500);
-        });
-    }
-    
-    // Отображение сообщения об успешной отправке
-    function showSuccessMessage(form) {
-        const messageContainer = form.querySelector('.form-message');
-        if (messageContainer) {
-            messageContainer.textContent = 'Сообщение успешно отправлено!';
-            messageContainer.classList.add('success');
-            messageContainer.classList.remove('error');
-            messageContainer.style.display = 'block';
-        }
-    }
-    
-    // Отображение сообщения об ошибке
-    function showErrorMessage(form, message) {
-        const messageContainer = form.querySelector('.form-message');
-        if (messageContainer) {
-            messageContainer.textContent = message;
-            messageContainer.classList.add('error');
-            messageContainer.classList.remove('success');
-            messageContainer.style.display = 'block';
-        }
-    }
+        updateCounter();
+    });
 }
 
 // Кнопка прокрутки наверх
@@ -537,6 +423,32 @@ function initScrollToTop() {
             behavior: 'smooth'
         });
     });
+}
+
+// Инициализация кнопок прокрутки
+function initScrollToButtons() {
+    const scrollButtons = document.querySelectorAll('[data-scroll-to]');
+    
+    scrollButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-scroll-to');
+            scrollToElement(targetId);
+        });
+    });
+}
+
+// Функция для плавного скролла к элементу
+function scrollToElement(elementId) {
+    const targetElement = document.getElementById(elementId);
+    
+    if (targetElement) {
+        window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+        });
+    } else {
+        console.error(`Element with id ${elementId} not found`);
+    }
 }
 
 // Функция для воспроизведения видео при клике
@@ -589,7 +501,7 @@ function initVideoThumbnails() {
                 // default.jpg (низкое качество)
                 
                 // Проверяем доступность высококачественного превью
-                checkImageExists(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`)
+                checkImageExists(`https://img.youtube.com/vi/${videoId}/0.jpg`)
                     .then(exists => {
                         if (exists) {
                            // thumbnail.style.backgroundImage = `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`;
@@ -631,5 +543,17 @@ function checkImageExists(url) {
         img.onload = () => resolve(true);
         img.onerror = () => resolve(false);
         img.src = url;
+    });
+}
+
+// Инициализация кнопок видео
+function initVideoButtons() {
+    const videoOverlays = document.querySelectorAll('.video-overlay[data-video-id]');
+    
+    videoOverlays.forEach(overlay => {
+        overlay.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            playVideo(videoId);
+        });
     });
 }

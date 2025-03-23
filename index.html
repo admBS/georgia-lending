@@ -38,10 +38,10 @@
                     <h1 class="hero__title animated">Доставка автомобилей из США в Минск через Грузию</h1>
                     <p class="hero__subtitle animated">Профессиональная морская перевозка автомобилей с гарантией сохранности и полным таможенным оформлением</p>
                     <div class="hero__buttons animated">
-                        <button class="btn btn--secondary hero__btn call-btn" onclick="scrollToElement('contact')">
+                        <button class="btn btn--secondary hero__btn call-btn" data-scroll-to="contact">
                             <i class="fas fa-phone-alt"></i> Заказать звонок
                         </button>
-                        <button class="btn btn--outline hero__btn" onclick="scrollToElement('calculator')">
+                        <button class="btn btn--outline hero__btn" data-scroll-to="calculator">
                             <i class="fas fa-calculator"></i> Рассчитать стоимость
                         </button>
                     </div>
@@ -307,7 +307,7 @@
                 <div class="process__video animated">
                     <h3>Посмотрите, как мы работаем:</h3>
                     <div class="video-container" id="videoContainer1">
-                        <div class="video-overlay" onclick="playVideo('videoContainer1')">
+                        <div class="video-overlay" data-video-id="videoContainer1">
                             <i class="fas fa-play-circle"></i>
                             <span>Смотреть видео погрузки</span>
                         </div>
@@ -560,7 +560,7 @@
                     <div class="videos-container">
                         <div class="video-item animated">
                             <div class="video-container" id="videoContainer2">
-                                <div class="video-overlay" onclick="playVideo('videoContainer2')">
+                                <div class="video-overlay" data-video-id="videoContainer2">
                                     <i class="fas fa-play-circle"></i>
                                     <span>Погрузка автомобилей</span>
                                 </div>
@@ -571,7 +571,7 @@
                         
                         <div class="video-item animated">
                             <div class="video-container" id="videoContainer3">
-                                <div class="video-overlay" onclick="playVideo('videoContainer3')">
+                                <div class="video-overlay" data-video-id="videoContainer3">
                                     <i class="fas fa-play-circle"></i>
                                     <span>Морская доставка</span>
                                 </div>
