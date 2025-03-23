@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initVideoThumbnails();
     initScrollToButtons();
     initVideoButtons();
+    initScrollToTop();
+    initForms();
 });
 
 // Анимации
@@ -301,9 +303,73 @@ function initCalculator() {
     });
     
     // Обработка отправки формы (расчет)
-    calculator.addEventListener('submit', function(e) {
+    calculator.addEventListener('submit', async function(e) {
         e.preventDefault();
         calculatePrice();
+        
+        // Добавляем обработку отправки формы в Telegram, если указан телефон
+        const phoneInput = calculator.querySelector('input[name="phone"]');
+        const nameInput = calculator.querySelector('input[name="name"]');
+        if (phoneInput && phoneInput.value) {
+            // Показываем индикатор загрузки
+            const submitBtn = calculator.querySelector('[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.disabled = true;
+            
+            // Собираем данные формы
+            const data = {
+                carType: document.querySelector('input[name="car_type"]:checked').value,
+                year: document.querySelector('#year-slider').value,
+                volume: document.querySelector('#engine').value,
+                condition: document.querySelector('input[name="condition"]:checked').value,
+                price: resultPrice.textContent,
+                phone: phoneInput.value,
+                name: nameInput ? nameInput.value : ''
+            };
+            
+            // Отправляем данные на сервер
+            fetch('http://localhost:3000/api/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Показываем сообщение об успехе
+                    const modalSuccess = document.querySelector('.modal--success');
+                    if (modalSuccess) {
+                        modalSuccess.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    
+                    // Сбрасываем поля формы
+                    phoneInput.value = '';
+                    if (nameInput) nameInput.value = '';
+                } else {
+                    // Показываем сообщение об ошибке
+                    const messageEl = calculator.querySelector('.form-message');
+                    if (messageEl) {
+                        messageEl.innerHTML = `<div class="error-message">${result.error || 'Произошла ошибка при отправке данных'}</div>`;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка отправки формы:', error);
+                const messageEl = calculator.querySelector('.form-message');
+                if (messageEl) {
+                    messageEl.innerHTML = '<div class="error-message">Произошла ошибка при отправке данных</div>';
+                }
+            })
+            .finally(() => {
+                // Восстанавливаем кнопку
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        }
     });
     
     // Функция расчета стоимости
@@ -557,4 +623,140 @@ function initVideoButtons() {
             playVideo(videoId);
         });
     });
+}
+
+// Инициализация обработки форм отправки
+function initForms() {
+    // Форма обратной связи
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Показываем индикатор загрузки
+            const submitBtn = this.querySelector('[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitBtn.disabled = true;
+            
+            // Собираем данные формы
+            const formData = new FormData(this);
+            const formDataObj = {};
+            formData.forEach((value, key) => {
+                formDataObj[key] = value;
+            });
+            
+            try {
+                // Отправляем данные на сервер
+                const response = await fetch('http://localhost:3000/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObj)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Показываем сообщение об успехе
+                    const modalSuccess = document.querySelector('.modal--success');
+                    if (modalSuccess) {
+                        document.querySelectorAll('.modal').forEach(modal => {
+                            modal.classList.remove('active');
+                        });
+                        modalSuccess.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    
+                    // Сбрасываем форму
+                    this.reset();
+                } else {
+                    // Показываем сообщение об ошибке
+                    const messageEl = this.querySelector('.form-message');
+                    if (messageEl) {
+                        messageEl.innerHTML = `<div class="error-message">${result.error || 'Произошла ошибка при отправке формы'}</div>`;
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка отправки формы:', error);
+                const messageEl = this.querySelector('.form-message');
+                if (messageEl) {
+                    messageEl.innerHTML = '<div class="error-message">Произошла ошибка при отправке формы</div>';
+                }
+            } finally {
+                // Восстанавливаем кнопку
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Форма заказа обратного звонка
+    const callbackForms = document.querySelectorAll('.callback-form');
+    if (callbackForms.length) {
+        callbackForms.forEach(form => {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Показываем индикатор загрузки
+                const submitBtn = this.querySelector('[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+                submitBtn.disabled = true;
+                
+                // Собираем данные формы
+                const formData = new FormData(this);
+                const formDataObj = {};
+                formData.forEach((value, key) => {
+                    formDataObj[key] = value;
+                });
+                
+                try {
+                    // Отправляем данные на сервер
+                    const response = await fetch('http://localhost:3000/api/callback', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formDataObj)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Показываем сообщение об успехе
+                        const modalSuccess = document.querySelector('.modal--success');
+                        const modalCall = document.querySelector('.modal--call');
+                        
+                        if (modalSuccess) {
+                            if (modalCall) {
+                                modalCall.classList.remove('active');
+                            }
+                            modalSuccess.classList.add('active');
+                        }
+                        
+                        // Сбрасываем форму
+                        this.reset();
+                    } else {
+                        // Показываем сообщение об ошибке
+                        const messageEl = this.querySelector('.form-message');
+                        if (messageEl) {
+                            messageEl.innerHTML = `<div class="error-message">${result.error || 'Произошла ошибка при отправке формы'}</div>`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Ошибка отправки формы:', error);
+                    const messageEl = this.querySelector('.form-message');
+                    if (messageEl) {
+                        messageEl.innerHTML = '<div class="error-message">Произошла ошибка при отправке формы</div>';
+                    }
+                } finally {
+                    // Восстанавливаем кнопку
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
+    }
 }
