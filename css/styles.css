@@ -671,6 +671,38 @@ section {
     color: var(--light-text);
 }
 
+.services__cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.services__cta-buttons .btn {
+    min-width: 220px;
+}
+
+.services__cta-buttons .btn--outline {
+    color: var(--light-text);
+    border: 2px solid var(--primary-color);
+}
+
+.services__cta-buttons .btn--outline:hover {
+    background-color: var(--primary-color);
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+}
+
+.services__cta-buttons .btn--outline i {
+    margin-right: 0.8rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.services__cta-buttons .btn--outline:hover i {
+    color: var(--light-text);
+}
+
 /* Секция Benefits */
 .benefits {
     background-color: var(--dark-bg-secondary);
